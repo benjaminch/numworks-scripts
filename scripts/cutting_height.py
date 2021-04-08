@@ -3,7 +3,7 @@ class Log:
         self.boards = []
         self.saw_blade_height_millimeters = saw_blade_height_millimeters
 
-    def __repr__(self):
+    def __str__(self):
         output = ""
 
         for i, board in enumerate(reversed(self.boards)):
@@ -35,7 +35,7 @@ class Board:
         self.is_saw_blade_placeholder = is_saw_blade_placeholder
         self.height_millimeters = height_millimeters
 
-    def __repr__(self):
+    def __str__(self):
         return str(self.height_millimeters)
 
 
@@ -62,7 +62,7 @@ def cutting_height():
 
             log.add_board(Board(current_board_height_millimeters))
 
-        print("\n" + log + "\n")
+        print("\n" + str(log) + "\n")
 
 
 cutting_height()
