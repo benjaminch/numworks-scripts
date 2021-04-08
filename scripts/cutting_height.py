@@ -48,7 +48,7 @@ def cutting_height():
     current_height = 0
 
     while True:
-        user_input = input("Hauteur de planche mm:\n (tapez '-' pour depiler la planche): ").strip()
+        user_input = input("Hauteur de planche mm:\n ('-' pour depiler): ").strip()
 
         if user_input == "-":
             log.pop_board()
