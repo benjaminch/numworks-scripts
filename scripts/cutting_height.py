@@ -7,20 +7,23 @@ class Log:
         output = ""
 
         for i, board in enumerate(reversed(self.boards)):
-                output += "|\t" + str(board) + "\t|"
+                output += "|\t " + str(board) + " \t|"
 
                 if i == 0:
-                    output += " <= " + self.current_blade_height_millimeters()
+                    output += " <= " + str(self.current_blade_height_millimeters())
 
                 output += "\n"
 
-        return output
+        return output + "\n==========="
 
     def add_board(self, board):
         self.boards.append(board)
 
     def pop_board(self):
         board = self.boards.pop()
+
+    def board_count(self):
+        return len(self.boards)
 
     def current_blade_height_millimeters(self):
         height_millimeters = 0
@@ -48,9 +51,10 @@ def cutting_height():
     current_height = 0
 
     while True:
-        user_input = input("Hauteur de planche mm:\n ('-' pour depiler): ").strip()
+        input_text = "Hauteur de planche mm" + "\n ('-' pour depiler): " if log.boards_count() > 0 else ":"
+        user_input = input(input_text).strip()
 
-        if user_input == "-":
+        if user_input == "-" and log.boards_count() > 0:
             log.pop_board()
 
         else:
