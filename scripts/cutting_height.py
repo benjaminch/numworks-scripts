@@ -7,7 +7,7 @@ class Log:
         output = ""
 
         for i, board in enumerate(reversed(self.boards)):
-                output += "|\t" + board + "\t|"
+                output += "|\t" + str(board) + "\t|"
 
                 if i == 0:
                     output += " <= " + self.current_blade_height_millimeters()
