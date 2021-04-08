@@ -42,13 +42,13 @@ class Board:
 def cutting_height():
     default_saw_blade_height_millimeters = 3
 
-    saw_blade_height_millimeters = int(input("Hauteur de lame en millimetres (default: 3mm): ").strip() or "0") or default_saw_blade_height_millimeters
+    saw_blade_height_millimeters = int(input("Hauteur de lame en mm\n (default: 3mm): ").strip() or "0") or default_saw_blade_height_millimeters
 
     log = Log(saw_blade_height_millimeters)
     current_height = 0
 
     while True:
-        user_input = input("Hauteur de planche en millimetres: (tapez '-' pour depiler la derniere planche): ").strip()
+        user_input = input("Hauteur de planche mm:\n (tapez '-' pour depiler la planche): ").strip()
 
         if user_input == "-":
             log.pop_board()
@@ -57,7 +57,7 @@ def cutting_height():
             current_board_height_millimeters = int(user_input or "0")
 
             if current_board_height_millimeters <= 0:
-                print("La hauteur de planche doit etre > 0")
+                print("La hauteur doit etre > 0")
                 continue
 
             log.add_board(Board(current_board_height_millimeters))
@@ -65,5 +65,4 @@ def cutting_height():
         print("\n" + log + "\n")
 
 
-if __name__ == "__main__":
-    cutting_height()
+cutting_height()
