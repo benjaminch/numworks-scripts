@@ -54,8 +54,11 @@ def cutting_height():
         input_text = "Hauteur de planche mm" + ("\n ('-' pour depiler): " if log.boards_count() > 0 else ":")
         user_input = input(input_text).strip()
 
-        if user_input == "-" and log.boards_count() > 0:
-            log.pop_board()
+        if user_input == "-":
+            if log.boards_count() > 0:
+                log.pop_board()
+            else:
+                continue
 
         else:
             current_board_height_millimeters = int(user_input or "0")
