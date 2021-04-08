@@ -7,10 +7,10 @@ class Log:
         output = ""
 
         for i, board in enumerate(reversed(self.boards)):
-                output += f"|\t{board}\t|"
+                output += "|\t" + board + "\t|"
 
                 if i == 0:
-                    output += f" <= {self.current_blade_height_millimeters()}"
+                    output += " <= " + self.current_blade_height_millimeters()
 
                 output += "\n"
 
@@ -36,7 +36,7 @@ class Board:
         self.height_millimeters = height_millimeters
 
     def __repr__(self):
-        return f"{self.height_millimeters}"
+        return str(self.height_millimeters)
 
 
 def cutting_height():
@@ -62,7 +62,7 @@ def cutting_height():
 
             log.add_board(Board(current_board_height_millimeters))
 
-        print(f"\n{log}\n")
+        print(f"\n" + log + "\n")
 
 
 if __name__ == "__main__":
