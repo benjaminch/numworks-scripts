@@ -62,7 +62,7 @@ def cutting_height():
 
             log.add_board(Board(current_board_height_millimeters))
 
-        print(f"\n" + log + "\n")
+        print("\n" + log + "\n")
 
 
 if __name__ == "__main__":
